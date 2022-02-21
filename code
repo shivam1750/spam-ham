@@ -1,0 +1,13 @@
+#web app
+#%%writefile spam.py
+import streamlit as st
+import joblib
+#load the model 
+model=joblib.load('spam-ham')
+#user input
+st.title('SPAM HAM CLASSIFICATION')
+ip=st.text_input('enter your msg :')
+#predict if the 
+op=model.predict([ip])
+if st.button('PREDICT'):
+  st.title(op[0])  #prints the output as spam or ham 
